@@ -5,19 +5,22 @@ import * as categoryActions from '../../action/category-actions';
 import CategoryForm from '../section-form/category-form';
 import UpdateExpense from '../update-expense/update-expense'
 import RemoveExpense from '../remove-expense/remove-expense'
+import CardForm from "../card-form/card-form";
 
 class Dashboard extends React.Component {
   render() {
+    console.log(this.props.category);
     return (
       <div>
         <CategoryForm onComplete={this.props.categoryCreate}/>
-        <div> { this.props.categories.map(currentCategory => <section
+        <div> { this.props.category.map(currentCategory => <section
           key={currentCategory.id}
           className="expense-list">
           <p>Expense Name: {currentCategory.category}</p>
           <p>Amount: ${currentCategory.amount}</p>
           <UpdateExpense section={currentCategory} onComplete={this.props.categoryUpdate}/>
           <RemoveExpense section={currentCategory} onComplete={this.props.categoryRemove}/>
+          <CardForm section={this.props.section} onComplete={this.props.cardCreate}/>
         </section>)}
         </div>
       </div>
@@ -25,15 +28,16 @@ class Dashboard extends React.Component {
   }
 }
 Dashboard.propTypes = {
+  cardCreate: PropTypes.func,
   categoryCreate: PropTypes.func,
   categoryUpdate: PropTypes.func,
   categoryRemove: PropTypes.func,
-  categories: PropTypes.array,
+  category: PropTypes.array,
 };
 
 const mapStateToProps = (state) => {
   return {
-    categories: state,
+    category: state.category,
   };
 };
 
