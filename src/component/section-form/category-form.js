@@ -9,7 +9,7 @@ const emptyState = {
 class CategoryForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.category || emptyState;
+    this.state = this.props.section || emptyState;
   }
   handleChange = (event) => {
     let { name, value } = event.target;
@@ -46,7 +46,7 @@ class CategoryForm extends React.Component {
 }
 
 CategoryForm.propTypes = {
-  category: PropTypes.object,
+  section: PropTypes.object,
   onComplete: PropTypes.func,
 };
 

@@ -9,7 +9,7 @@ const emptyState = {
 class RemoveExpense extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.category || emptyState;
+    this.state = this.props.section || emptyState;
   }
 
   handleSubmit = (event) => {
@@ -28,7 +28,7 @@ class RemoveExpense extends React.Component {
 }
 
 RemoveExpense.propTypes = {
-  category: PropTypes.object,
+  section: PropTypes.object,
   onComplete : PropTypes.func,
 };
 

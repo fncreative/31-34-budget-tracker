@@ -9,7 +9,7 @@ const emptyState = {
 class UpdateExpense extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.category || emptyState;
+    this.state = this.props.section || emptyState;
   }
   handleChange = (event) => {
     let { name, value } = event.target;
@@ -48,7 +48,7 @@ class UpdateExpense extends React.Component {
 }
 
 UpdateExpense.propTypes = {
-  category: PropTypes.object,
+  section: PropTypes.object,
   onComplete : PropTypes.func,
 };
 
