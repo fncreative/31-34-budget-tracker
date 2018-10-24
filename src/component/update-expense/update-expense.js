@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const emptyState = {
-  expenseName: '',
-  expenseAmt: 0,
+  category: '',
+  amount: 0,
 };
 
 class UpdateExpense extends React.Component {
@@ -12,7 +12,7 @@ class UpdateExpense extends React.Component {
     this.state = this.props.category || emptyState;
   }
   handleChange = (event) => {
-    const { name, value } = event.target;
+    let { name, value } = event.target;
     this.setState({[name]: value});
   };
 
@@ -30,14 +30,14 @@ class UpdateExpense extends React.Component {
           type='text'
           name="category"
           placeholder='expense name'
-          value={this.state.category}
+          value={this.state.category || ''}
           onChange={this.handleChange}
         />
         <input
           type='text'
           name="amount"
           placeholder='expense amount'
-          value={this.state.amount}
+          value={this.state.amount || ''}
           onChange={this.handleChange}
         />
         <br />

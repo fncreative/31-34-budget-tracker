@@ -6,7 +6,6 @@ const emptyState = {
   amount: 0,
 };
 
-
 class RemoveExpense extends React.Component {
   constructor(props) {
     super(props);
